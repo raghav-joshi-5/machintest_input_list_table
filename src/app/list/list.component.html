@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-6">
+    <h3 class="text-center">List</h3>
+    <div class="form-group">
+      <label for="listItem">listItem</label
+      ><input type="text" #listItem id="listItem" class="form-control" />
+    </div>
+    <button (click)="onAddlist()" class="btn btn-sm btn-block btn-danger">
+      Add list Item
+    </button>
+  </div>
+  <div class="col-6">
+    <ul *ngIf="listArr.length > 0; else nolist" class="list-group">
+      <li *ngFor="let list of listArr" class="list-group-item">
+        {{ list.listItem }}
+      </li>
+    </ul>
+    <ng-template #nolist>
+      <p class="alert alert-danger">No item in list</p>
+    </ng-template>
+  </div>
+</div>

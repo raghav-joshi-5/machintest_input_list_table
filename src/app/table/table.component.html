@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-6 mb-4 mb-md-0">
+    <h3 class="text-center">Table</h3>
+    <div class="form-group">
+      <label for="make">make</label
+      ><input type="text" #make id="make" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="model">model</label
+      ><input type="text" #model id="model" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="year">year</label
+      ><input type="text" #year id="year" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="color">color</label
+      ><input type="text" #color id="color" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="isElectric">isElectric</label
+      ><input type="text" #isElectric id="isElectric" class="form-control" />
+    </div>
+    <button (click)="onAddcar()" class="btn btn-sm btn-success btn-block">
+      Add Card Info
+    </button>
+  </div>
+
+  <div class="col-6">
+    <table *ngIf="carArr.length > 0; else nocar" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>make</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>Color</th>
+          <th>is Electric</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of carArr; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ car.make }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.year }}</td>
+          <td>{{ car.color }}</td>
+          <td>{{ car.isElectric }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #nocar>
+      <p class="alert alert-danger">No Car to Show</p>
+    </ng-template>
+  </div>
+</div>
